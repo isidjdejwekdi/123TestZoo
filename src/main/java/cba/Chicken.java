@@ -1,8 +1,10 @@
 package cba;
 
 public class Chicken extends Myaso {
+   public int value=10;
+
    @Override
-   public int setValue() {
-      return value= 10;
+   public int getValue() {
+      return value;
    }
 }

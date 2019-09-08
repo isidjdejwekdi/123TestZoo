@@ -5,33 +5,37 @@ public class App
 {
     public static void feedAnimal(Animal animal, Food food){
 
-        food.value = food.setValue();
-        if((!food.isTrava() && animal.isHishnoe()) || (food.isTrava() && !animal.isHishnoe())){
+        food.value = food.getValue();
+        //if((!food.isTrava() && animal.isHishnoe()) || (food.isTrava() && !animal.isHishnoe())){
             Food[] eda = new Food[10];
 
             for (int i = 0; i <eda.length ; i++) {
                 eda[i]= food;
             }
             animal.areYouHungry();
-            for (int i = 0; i <eda.length && !animal.eat(eda[i]) ; i++) {
-                animal.areYouHungry();
-                animal.eat(eda[i]);
-                food.value = food.setValue();
 
+            try {
+                for (int i = 0; i < eda.length && !animal.eat(eda[i]); i++) {
+                    animal.areYouHungry();
+                    animal.eat(eda[i]);
+                    food.value = food.getValue();
+
+                }
             }
-            System.out.print(animal.name+": ");
+
+            catch (Exception e) {
+                e.printStackTrace();
+                if(animal.hungry<0){
+                    System.out.println("животное осталось голодным!");
+                }
+            }
+
+
+        System.out.print(animal.name+": ");
             animal.areYouHungry();
 
 
-        }
-        else{
-            System.out.println("не буду!");
-            return;
-        }
 
-        if(animal.hungry<0){
-            System.out.println("Еды не осталось, животное голодное!");
-        }
     }
 
 
@@ -51,11 +55,13 @@ public class App
         Apple apple = new Apple();
         Beef beef = new Beef();
 
+        feedAnimal(parrot,cabbage);
+        feedAnimal(parrot2,berries);
         feedAnimal(lion,berries);
         feedAnimal(lion,chicken);
-        feedAnimal(parrot,cabbage);
         feedAnimal(jiraf,beef);
-        feedAnimal(jiraf,cabbage);
+        feedAnimal(jiraf,apple);
+        feedAnimal(jiraf,apple);
         feedAnimal(behemoth,beef);
         feedAnimal(tiger,apple);
         feedAnimal(tiger,chicken);

@@ -1,8 +1,10 @@
 package cba;
 
 public class Berries extends Trava {
+    public int value=3;
+
     @Override
-    public int setValue() {
-        return value = 2;
+    public int getValue() {
+        return value;
     }
 }

@@ -1,8 +1,11 @@
 package cba;
 
 public class Сabbage extends Trava {
+public int value =5;
+
     @Override
-    public int setValue() {
-        return value=10;
+    public int getValue() {
+        return value;
     }
+
 }

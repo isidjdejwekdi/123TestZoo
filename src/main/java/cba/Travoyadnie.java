@@ -1,6 +1,8 @@
 package cba;
 
 public abstract class Travoyadnie extends Animal {
+
+
     public Travoyadnie(String name, int hungry) {
         super(name, hungry);
     }
@@ -11,13 +13,11 @@ public abstract class Travoyadnie extends Animal {
     }
 
     @Override
-    public boolean eat(Food food) {
-        if (food.isTrava()){
+    public boolean eat(Food food) throws Exception {
+        if (!food.isTrava()) throw new MyExeption("Нельзя кормить травоядное мясом");
             hungry += food.value;
             food.value = 0;
-        }
-        else
-            System.out.println("нельзя кормить травоядное мясом!");
+
         return hungry >= 0;
     }
 }

@@ -1,6 +1,6 @@
 package cba;
 
-public abstract class Animal {
+public abstract class Animal implements IAnimal {
     protected int hungry;
     public final String name;
 
@@ -10,7 +10,7 @@ public abstract class Animal {
         this.name = name;
     }
 
-    public abstract boolean eat(Food food);
+    //public abstract boolean eat(Food food);
     public abstract boolean isHishnoe();
 
     public void areYouHungry() {

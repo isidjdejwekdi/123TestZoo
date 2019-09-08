@@ -1,8 +1,10 @@
 package cba;
 
 public class Apple extends Trava {
+public int value=4;
+
     @Override
-    public int setValue() {
-        return value =5;
+    public int getValue() {
+        return value;
     }
 }

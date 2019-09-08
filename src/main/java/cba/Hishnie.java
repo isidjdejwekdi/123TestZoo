@@ -13,13 +13,11 @@ public abstract class Hishnie extends Animal {
     }
 
     @Override
-    public boolean eat(Food food) {
-        if (!food.isTrava()){
-            hungry += food.value;
-            food.value = 0;
-        }
-        else
-            System.out.println("нельзя кормить хищника травой!");
+    public boolean eat(Food food) throws Exception {
+        if (food.isTrava()) throw new MyExeption("Нельзя кормить хищника травой");
+        hungry += food.value;
+        food.value = 0;
+
         return hungry >= 0;
     }
 }
